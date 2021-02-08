@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinghai.mapper.RoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xinghai.entity.Role">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="description" property="description" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, description, create_time, update_time
+    </sql>
+
+    <select id="findPermissionByRoleId" resultType="com.xinghai.entity.Permission">
+        SELECT
+            per.id
+        FROM
+            sys_permission per
+            INNER JOIN sys_role_permission rolePer ON per.id = rolePer.permission_id
+        WHERE
+            rolePer.role_id = #{id}
+        ORDER BY
+            per.id
+    </select>
+
+    <insert id="saveRolePermission">
+        insert into sys_role_permission(role_id, permission_id) values
+        <foreach collection="perIds" item="perId" separator=",">
+            (#{roleId},#{perId})
+        </foreach>
+    </insert>
+
+
+    <update id="editRole">
+        update sys_role
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            update_time = #{updateTime}
+        </set>
+        where id = #{id}
+    </update>
+
+
+
+
+</mapper>
