@@ -9,9 +9,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.xx.xxx:3306/starsea?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://192.168.17.144:3306/starsea?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
     username: root
-    password: xxx
+    password: root
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 1
@@ -33,9 +33,14 @@ spring:
 
   redis:
     database: 0
-    host: 192.168.xx.xx
+    host: 192.168.17.144
     port: 6379
-    password: xxx
+    password: hewei
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+      enabled: false
 
 mybatis:
   type-aliases-package: com.xinghai.entity
@@ -54,3 +59,4 @@ api-url:
 
 server:
   port: 8080
+
