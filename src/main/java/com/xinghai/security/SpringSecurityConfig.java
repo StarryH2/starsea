@@ -61,7 +61,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/treetable-lay/**",
                         "/xadmin/**",
                         "/ztree/**",
-                        "/statics/**"
+                        "/js/**",
+                        "/webuploader/**",
+                        "/static/**"
                 )
                 .permitAll()
                 .anyRequest()
