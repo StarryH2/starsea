@@ -53,10 +53,10 @@ public class CodeGenerator {
 
         //数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.xx.xxx:3306/starsea?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia"+"/Shanghai");
+        dsc.setUrl("jdbc:mysql://192.168.17.144:3306/starsea?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia"+"/Shanghai");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("xxx");
+        dsc.setPassword("root");
 
         mpg.setDataSource(dsc);
 
